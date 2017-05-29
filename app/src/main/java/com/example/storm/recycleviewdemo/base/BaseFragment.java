@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * Created by Storm on 2017/5/28.
  * fragment 的基类
@@ -17,7 +20,7 @@ public abstract class BaseFragment extends Fragment {
 
     protected Context mContext;
     protected View rootView;
-
+    protected Unbinder unbinder;
 
     @Override
     public void onAttach(Context context) {
@@ -29,6 +32,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = onCreateRootView(inflater, container);
+        unbinder = ButterKnife.bind(this, rootView);
         bindView();
         return rootView;
     }
@@ -49,8 +53,13 @@ public abstract class BaseFragment extends Fragment {
     /**
      * 加载数据
      */
-    private void initData() {
+    protected void initData() {
     }
 
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

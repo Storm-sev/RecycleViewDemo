@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  *
  */
 
-public class RetrofiClienttManager {
+public class RetrofitClienttManager {
 
     public static OkHttpClient httpClient;
     public static volatile Retrofit mRetrofit;
@@ -25,7 +25,7 @@ public class RetrofiClienttManager {
     public static Retrofit initRetrofit() {
 
         if (mRetrofit == null) {
-            synchronized (RetrofiClienttManager.class) {
+            synchronized (RetrofitClienttManager.class) {
                 if (mRetrofit == null) {
                     HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
                     httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

@@ -8,5 +8,5 @@ package com.example.storm.recycleviewdemo.utils;
 public class Api {
 
 
-    public static final String BASE_URL = "http://apim.mtime.cn/";
+    public static final String BASE_URL = "http://s.budejie.com/topic/list/jingxuan/1/budejie-android-6.2.8/";
 }
